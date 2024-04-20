@@ -7,8 +7,8 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    docker.image('python:3.9-slim').inside('-v /var/run/docker.sock:/var/run/docker.sock') {
-                        sh 'pip3 install -r requirements.txt'
+                    docker.image('python:3.9-slim').inside("--privileged") {
+                        sh 'pip install -r requirements.txt'
                     }
                 }
             }
