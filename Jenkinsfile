@@ -7,7 +7,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    docker.image('python:3.9-slim').inside("--privileged") {
+                    docker.image('jenkins_python_app').inside {
                         sh 'pip install -r requirements.txt'
                     }
                 }
